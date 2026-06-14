@@ -1,42 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tutorial Membuat CRUD Pada Laravel - www.malasngoding.com</title>
-</head>
-<body>
+@extends('template')
+@section('title', 'Data Siswa')
+@section('konten')
 
-	<h2>www.malasngoding.com</h2>
-	<h3>Data Pegawai</h3>
+    <h2>Data Siswa</h2>
 
-	<a href="/pegawai/tambah"> + Tambah Pegawai Baru</a>
+    @if (session('success'))
+        <p style="color: green;">{{ session('success') }}</p>
+    @endif
 
-	<br/>
-	<br/>
+    <a href="{{ route('siswa.create') }}">Tambah Siswa</a>
 
-	<table border="1">
-		<tr>
-			<th>Nama</th>
-			<th>Jabatan</th>
-			<th>Umur</th>
-			<th>Alamat</th>
-			<th>Opsi</th>
-		</tr>
-		@foreach($pegawai as $p)
-		<tr>
-			<td>{{ $p->pegawai_nama }}</td>
-			<td>{{ $p->pegawai_jabatan }}</td>
-			<td>{{ $p->pegawai_umur }}</td>
-			<td>{{ $p->pegawai_alamat }}</td>
-			<td>
-				<a href="/pegawai/edit/{{ $p->pegawai_id }}">Edit</a>
-				|
-				<a href="/pegawai/hapus/{{ $p->pegawai_id }}">Hapus</a>
-			</td>
-		</tr>
-		@endforeach
-	</table>
+    <br><br>
+
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>NRP</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Tanggal Lahir</th>
+            <th>Aksi</th>
+        </tr>
+
+        @forelse($siswa as $row)
+            <tr>
+                <td>{{ $row->NRP }}</td>
+                <td>{{ $row->Nama }}</td>
+                <td>{{ $row->Kelas }}</td>
+                <td>{{ $row->TanggalLahir }}</td>
+                <td>
+                    <a href="{{ route('siswa.edit', $row->NRP) }}" class="btn btn-warning">Edit</a>
 
 
-</body>
-</html>
+                    <form action="{{ route('siswa.destroy', $row->NRP) }}" method="POST" style="display:inline;"
+                        onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
 
+                    </form>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="5">Belum ada data siswa.</td>
+            </tr>
+        @endforelse
+    </table>
+@endsection
