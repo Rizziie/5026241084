@@ -1,7 +1,7 @@
 <!-- Menghubungkan dengan view template -->
 @extends('template')
 
-@section('title', 'Data Pegawai')
+@section('title', 'Data Tagihan Air')
 @section('konten')
     <center>
         <p>Cari Data Pegawai :</p>

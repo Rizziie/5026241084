@@ -24,7 +24,7 @@
                         <a class="nav-link active" href="/pegawai">Pegawai</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/beras">Beras</a>
+                        <a class="nav-link" href="/snack">snack</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/keranjangbelanja">PR 2 (Latihan EAS Cowo)</a>
@@ -36,7 +36,7 @@
                         <a class="nav-link" href="/siswa">Pertemuan 14 (Siswa)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">EAS</a>
+                        <a class="nav-link" href="/tagihan_air">EAS</a>
                     </li>
 
                 </ul>
