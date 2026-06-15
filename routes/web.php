@@ -111,4 +111,4 @@ Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.
 Route::get('/tagihan_air', [TagihanAirController::class, 'indextagihanair']);
 Route::get('/tagihan_air_tambah', [TagihanAirController::class, 'tambahtagihanair']);
 Route::post('/tagihan_air_store', [TagihanAirController::class, 'storetagihanair']);
-Route::get('/snack_cari', [TagihanAirController::class, 'caritagihanair']);
+Route::get('/tagihan_air_cari', [TagihanAirController::class, 'caritagihanair']);

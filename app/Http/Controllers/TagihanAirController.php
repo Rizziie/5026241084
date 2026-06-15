@@ -45,26 +45,33 @@ class TagihanAirController extends Controller
 	// method untuk insert data ke table pegawai
 	public function storetagihanair(Request $request)
 	{
+        $MeterAwal  = $request->MeterAwal;
+        $MeterAkhir  = $request->MeterAkhir;
+
+        $MeterTotal = $MeterAkhir - $MeterAwal;
+        $TagihanTotal = $MeterTotal * 5000;
 		// insert data ke table pegawai
 		DB::table('tagihan_air')->insert([
 			'NoMeteran' => $request->NoMeteran,
 			'MeterAwal' => $request->MeterAwal,
-			'MeterAkhir' => $request->MeterAkhir
+			'MeterAkhir' => $request->MeterAkhir,
+            'MeterTotal' => $MeterTotal,
+            'TagihanTotal' => $TagihanTotal,
 		]);
 		// alihkan halaman ke halaman pegawai
 		return redirect('/tagihan_air');
 
 	}
 
-	// // method untuk edit data pegawai
-	// public function edittagihanair($id)
-	// {
-	// 	// mengambil data pegawai berdasarkan id yang dipilih
-	// 	$snack = DB::table('snack')->where('kodesnack',$id)->get();
-	// 	// passing data pegawai yang didapat ke view edit.blade.php
-	// 	return view('edit_snack',['snack' => $snack]);
+	// method untuk edit data pegawai
+	public function edittagihanair($id)
+	{
+		// mengambil data pegawai berdasarkan id yang dipilih
+		$snack = DB::table('tagihan_air')->where('NoMeteran',$id)->get();
+		// passing data pegawai yang didapat ke view edit.blade.php
+		return view('edit_tagihan_air',['tagihan_air' => $tagihan_air]);
 
-	// }
+	}
 
 // 	// update data pegawai
 // 	public function updatetagihanair(Request $request)

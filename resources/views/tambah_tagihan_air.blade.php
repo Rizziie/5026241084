@@ -21,23 +21,23 @@
                     {{ csrf_field() }}
 
                     <div class="row mb-3">
-                        <label for="merk" class="col-sm-2 col-form-label">No Meteran</label>
+                        <label for="NoMeteran" class="col-sm-2 col-form-label">No Meteran</label>
                         <div class="col-sm-10">
-                            <input type="text" name="merk" id="merk" class="form-control" required>
+                            <input type="number" name="NoMeteran" id="NoMeteran" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <label for="stock" class="col-sm-2 col-form-label">Meter Awal</label>
+                        <label for="MeterAwal" class="col-sm-2 col-form-label">Meter Awal</label>
                         <div class="col-sm-10">
-                            <input type="number" name="stock" id="stock" class="form-control" required>
+                            <input type="number" name="MeterAwal" id="MeterAwal" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <label for="tersedia" class="col-sm-2 col-form-label">Meter Akhir</label>
+                        <label for="MeterAkhir" class="col-sm-2 col-form-label">Meter Akhir</label>
                         <div class="col-sm-10">
-                            <input type="text" name="tersedia" id="tersedia" class="form-control" required>
+                            <input type="number" name="MeterAkhir" id="MeterAkhir" class="form-control" required>
                         </div>
                     </div>
                     <div class="row">
@@ -50,6 +50,6 @@
         </div>
         <br />
         <br />
-        <a href="/snack" class="btn btn-info"> Kembali</a>
+        <a href="/tagihan_air" class="btn btn-info"> Kembali</a>
     </center>
 @endsection
