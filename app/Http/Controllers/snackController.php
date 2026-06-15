@@ -5,87 +5,87 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class berasController extends Controller
+class snackController extends Controller
 {
-    public function indexBeras()
+    public function indexsnack()
     {
     	// mengambil data dari table pegawai
     	//$pegawai = DB::table('pegawai')->get(); --> JIKA TIDAK PAKAI PAGINATE
-        $beras = DB::table('beras')->paginate(10);
+        $snack = DB::table('snack')->paginate(10);
 
     	// mengirim data pegawai ke view index
-    	return view('index_beras',['beras' => $beras]);
+    	return view('index_snack',['snack' => $snack]);
 
     }
 
-	public function cariBeras(Request $request)
+	public function carisnack(Request $request)
 	{
 		// menangkap data pencarian
 		$cari = $request->cari;
 
     		// mengambil data dari table pegawai sesuai pencarian data
-		$beras = DB::table('beras')
-		->where('merkberas','like',"%".$cari."%")
+		$snack = DB::table('snack')
+		->where('merksnack','like',"%".$cari."%")
 		->paginate();
 
     		// mengirim data pegawai ke view index
-		return view('index_beras',['beras' => $beras]);
+		return view('index_snack',['snack' => $snack]);
 
 	}
 
     // method untuk menampilkan view form tambah pegawai
-	public function tambahBeras()
+	public function tambahsnack()
 	{
 
 		// memanggil view tambah
-		return view('tambah_beras');
+		return view('tambah_snack');
 
 	}
 
 	// method untuk insert data ke table pegawai
-	public function storeBeras(Request $request)
+	public function storesnack(Request $request)
 	{
 		// insert data ke table pegawai
-		DB::table('beras')->insert([
-			'merkberas' => $request->merk,
-			'stockberas' => $request->stock,
+		DB::table('snack')->insert([
+			'merksnack' => $request->merk,
+			'stocksnack' => $request->stock,
 			'tersedia' => $request->tersedia
 		]);
 		// alihkan halaman ke halaman pegawai
-		return redirect('/beras');
+		return redirect('/snack');
 
 	}
 
 	// method untuk edit data pegawai
-	public function editBeras($id)
+	public function editsnack($id)
 	{
 		// mengambil data pegawai berdasarkan id yang dipilih
-		$beras = DB::table('beras')->where('kodeberas',$id)->get();
+		$snack = DB::table('snack')->where('kodesnack',$id)->get();
 		// passing data pegawai yang didapat ke view edit.blade.php
-		return view('edit_beras',['beras' => $beras]);
+		return view('edit_snack',['snack' => $snack]);
 
 	}
 
 	// update data pegawai
-	public function updateBeras(Request $request)
+	public function updatesnack(Request $request)
 	{
 		// update data pegawai
-		DB::table('beras')->where('kodeberas',$request->id)->update([
-			'merkberas' => $request->merk,
-			'stockberas' => $request->stock,
+		DB::table('snack')->where('kodesnack',$request->id)->update([
+			'merksnack' => $request->merk,
+			'stocksnack' => $request->stock,
 			'tersedia' => $request->tersedia
 		]);
 		// alihkan halaman ke halaman pegawai
-		return redirect('/beras');
+		return redirect('/snack');
 	}
 
 	// method untuk hapus data pegawai
-	public function hapusBeras($id)
+	public function hapussnack($id)
 	{
 		// menghapus data pegawai berdasarkan id yang dipilih
-		DB::table('beras')->where('kodeberas',$id)->delete();
+		DB::table('snack')->where('kodesnack',$id)->delete();
 
 		// alihkan halaman ke halaman pegawai
-		return redirect('/beras');
+		return redirect('/snack');
 	}
 }

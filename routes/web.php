@@ -81,14 +81,14 @@ Route::get('/keranjangbeli/{id}', [keranjangController::class, 'beli']);
 Route::post('/keranjangstore', [keranjangController::class, 'storeKeranjang']);
 Route::get('/keranjangbatal/{id}', [keranjangController::class, 'batal']);
 
-//crud tabel beras
-Route::get('/beras', [berasController::class, 'indexBeras']);
-Route::get('/beras_tambah', [berasController::class, 'tambahBeras']);
-Route::post('/beras_store', [berasController::class, 'storeBeras']);
-Route::get('/beras_edit/{id}', [berasController::class, 'editBeras']);
-Route::post('/beras_update', [berasController::class, 'updateBeras']);
-Route::get('/beras_hapus/{id}', [berasController::class, 'hapusBeras']);
-Route::get('/beras_cari', [berasController::class, 'cariBeras']);
+//crud tabel snack
+Route::get('/snack', [snackController::class, 'indexsnack']);
+Route::get('/snack_tambah', [snackController::class, 'tambahsnack']);
+Route::post('/snack_store', [snackController::class, 'storesnack']);
+Route::get('/snack_edit/{id}', [snackController::class, 'editsnack']);
+Route::post('/snack_update', [snackController::class, 'updatesnack']);
+Route::get('/snack_hapus/{id}', [snackController::class, 'hapussnack']);
+Route::get('/snack_cari', [snackController::class, 'carisnack']);
 
 //crud tabel nilaikuliah
 Route::get('/nilaikuliah', [nilaiController::class, 'indexNilai']);
